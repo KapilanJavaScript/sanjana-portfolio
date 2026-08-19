@@ -25,19 +25,20 @@ nav .links{display:flex;gap:34px}
 nav .links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.64rem;letter-spacing:.32em;text-transform:uppercase;transition:color .3s}
 nav .links a:hover{color:#fff}
 
-/* ——— HERO ——— */
-.hero{min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:0;padding:0 40px;position:relative}
-.hero .h-left{padding:80px 40px 40px 0;z-index:2}
-.hero .kicker{margin-bottom:28px}
-.hero h1{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(5.5rem,13vw,12rem);line-height:.82;letter-spacing:-.02em}
-.hero h1 em{font-style:italic;font-weight:400}
-.hero .h-meta{margin-top:44px;display:flex;flex-direction:column;gap:10px}
-.hero .h-meta .row{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
-.hero .h-meta .row b{font-weight:500;color:var(--ink);letter-spacing:.18em}
-.hero .h-right{position:relative;height:88vh;align-self:center}
-.hero .h-right .imgwrap{position:absolute;inset:0;overflow:hidden}
-.hero .h-right img{width:100%;height:100%;object-fit:cover;filter:grayscale(.08)}
-.hero .scroll-cue{position:absolute;bottom:34px;left:40px;z-index:3;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
+/* ——— HERO : FACE FIRST ——— */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.hero .h-face{position:relative;overflow:hidden;height:100vh}
+.hero .h-face img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.94)}
+.hero .h-face::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,19,14,.06) 0%,transparent 40%,rgba(22,19,14,.16) 100%)}
+.hero .h-side{display:flex;flex-direction:column;justify-content:center;padding:120px 56px 60px 56px;position:relative}
+.hero .h-side .kicker{margin-bottom:30px}
+.hero h1{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(5rem,11.5vw,10.5rem);line-height:.78;letter-spacing:-.02em}
+.hero h1 .thin{font-weight:400}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+.hero .h-meta{margin-top:52px;display:flex;flex-direction:column;gap:11px;max-width:340px}
+.hero .h-meta .row{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:11px;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.hero .h-meta .row b{font-weight:500;color:var(--ink);letter-spacing:.16em}
+.hero .scroll-cue{position:absolute;bottom:34px;left:56px;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
 .hero .scroll-cue::after{content:"";width:56px;height:1px;background:var(--gold);animation:cue 2.2s ease-in-out infinite}
 @keyframes cue{0%,100%{transform:scaleX(.3);transform-origin:left}50%{transform:scaleX(1)}}
 
@@ -47,12 +48,14 @@ nav .links a:hover{color:#fff}
 .marquee span{font-family:'Cormorant Garamond';font-size:1.7rem;font-style:italic;letter-spacing:.06em;padding:0 1.6em}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+/* ——— SECTION HEADERS ——— */
+.sec-num{display:flex;align-items:baseline;gap:22px;margin-bottom:60px}
+.sec-num .n{font-family:'Cormorant Garamond';font-style:italic;font-size:1.5rem;color:var(--gold)}
+.sec-num h2{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(2.6rem,5vw,4.6rem);line-height:1}
+.sec-num h2 em{font-style:italic;color:var(--gold)}
+
 /* ——— WORK ——— */
-.work{padding:130px 40px 60px}
-.work-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:70px}
-.work-head h2{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(2.6rem,5vw,4.6rem);line-height:1}
-.work-head h2 em{font-style:italic;color:var(--gold)}
-.work-head .idx{font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted)}
+.work{padding:130px 40px 40px}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:56px 32px}
 .item{grid-column:span 4;position:relative}
 .item.wide{grid-column:span 7}
@@ -60,18 +63,26 @@ nav .links a:hover{color:#fff}
 .item .frame{aspect-ratio:3/4;overflow:hidden;position:relative;background:#e9e4d8}
 .item.wide .frame{aspect-ratio:4/5}
 .item.wide2 .frame{aspect-ratio:3/4}
-.item .frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1),filter .6s}
+.item .frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
 .item:hover .frame img{transform:scale(1.06)}
 .item .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(22,19,14,.22));opacity:0;transition:opacity .5s}
 .item:hover .frame::after{opacity:1}
-.item .no{position:absolute;top:16px;left:18px;z-index:2;font-family:'Cormorant Garamond';font-style:italic;font-size:1.05rem;color:#fff;opacity:0;transform:translateY(-6px);transition:.45s}
-.item:hover .no{opacity:1;transform:none}
 .item .cap{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
 .item .cap .t{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
 .item .cap .tag{font-family:'Cormorant Garamond';font-style:italic;font-size:1rem;color:var(--muted)}
 .item .ph{aspect-ratio:3/4;border:1px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);background:rgba(255,255,255,.3)}
 .item .ph .num{font-family:'Cormorant Garamond';font-style:italic;font-size:2.6rem;color:var(--gold)}
 .item .ph .lbl{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase}
+
+/* ——— LIFESTYLE ——— */
+.lifestyle{padding:130px 40px 40px;border-top:1px solid var(--ink);background:#efe9dc}
+.life-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:32px}
+.life-grid .frame{aspect-ratio:4/5;overflow:hidden;position:relative;background:#e2dac8}
+.life-grid .frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.life-grid .frame:hover img{transform:scale(1.05)}
+.life-grid .item .cap{display:flex;justify-content:space-between;margin-top:14px}
+.life-grid .item .cap .t{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.life-grid .item .cap .tag{font-family:'Cormorant Garamond';font-style:italic;font-size:1rem;color:var(--muted)}
 
 /* ——— ABOUT ——— */
 .about{display:grid;grid-template-columns:1fr 1fr;gap:90px;padding:150px 40px;border-top:1px solid var(--ink);margin-top:60px;background:#fffdf8}
@@ -114,14 +125,17 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
 .reveal.in{opacity:1;transform:none}
 
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;padding:0 22px;gap:30px}
-  .hero .h-right{height:60vh;order:2}
-  .hero .h-left{padding:90px 0 0}
+  .hero{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .hero .h-face{height:62vh}
+  .hero .h-side{padding:70px 22px 40px}
+  .hero .scroll-cue{left:22px;bottom:22px}
   nav{padding:18px 22px}
   nav .links{gap:18px}
   .work{padding:90px 22px 40px}
   .grid{grid-template-columns:1fr;gap:44px}
   .item,.item.wide,.item.wide2{grid-column:span 1}
+  .lifestyle{padding:90px 22px 40px}
+  .life-grid{grid-template-columns:1fr}
   .about{grid-template-columns:1fr;padding:90px 22px;gap:60px}
   .about .a-img .badge{right:0}
   .contact{padding:90px 22px 50px}
@@ -136,23 +150,25 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   <div class="brand">Sanjana</div>
   <div class="links">
     <a href="#work">Work</a>
+    <a href="#lifestyle">Lifestyle</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
+<!-- FACE FIRST -->
 <header class="hero">
-  <div class="h-left">
+  <div class="h-side">
     <div class="kicker">Model — Creative — India</div>
-    <h1>Sanj<br>ana<em>.</em></h1>
+    <h1>San<br><span class="thin">jana</span> <em>.</em></h1>
     <div class="h-meta">
       <div class="row"><span>Editorial</span><b>Beauty &amp; Fashion</b></div>
       <div class="row"><span>Based</span><b>India — Worldwide</b></div>
       <div class="row"><span>Est.</span><b>MMXXVI</b></div>
     </div>
   </div>
-  <div class="h-right">
-    <div class="imgwrap"><img src="photo06.jpg" alt="Sanjana — royal blue and gold sari"></div>
+  <div class="h-face">
+    <img src="photo01.jpg" alt="Sanjana — beauty portrait, braid, red lip">
   </div>
   <div class="scroll-cue">Scroll</div>
 </header>
@@ -163,21 +179,17 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   </div>
 </div>
 
+<!-- WORK PAGE -->
 <section class="work" id="work">
-  <div class="work-head reveal">
+  <div class="sec-num reveal">
+    <span class="n">01</span>
     <h2>Selected <em>Work</em></h2>
-    <div class="idx">( 09 frames — 2026 )</div>
   </div>
   <div class="grid">
 
     <div class="item wide reveal">
       <div class="frame"><img src="photo07.jpg" alt="Emerald silk sari — regal editorial"></div>
       <div class="cap"><span class="t">The Emerald Edit</span><span class="tag">Traditional — 07</span></div>
-    </div>
-
-    <div class="item reveal">
-      <div class="frame"><img src="photo01.jpg" alt="Beauty close-up — braid, red lip"></div>
-      <div class="cap"><span class="t">Beauty Study</span><span class="tag">Beauty — 01</span></div>
     </div>
 
     <div class="item reveal">
@@ -201,16 +213,6 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
     </div>
 
     <div class="item reveal">
-      <div class="frame"><img src="photo08.jpg" alt="Coffee shop — cream and denim"></div>
-      <div class="cap"><span class="t">Golden Hour</span><span class="tag">Lifestyle — 08</span></div>
-    </div>
-
-    <div class="item reveal">
-      <div class="frame"><img src="photo09.jpg" alt="Street style — beanie and denim jacket"></div>
-      <div class="cap"><span class="t">City Frames</span><span class="tag">Lifestyle — 09</span></div>
-    </div>
-
-    <div class="item reveal">
       <div class="ph"><span class="num">02</span><span class="lbl">Fashion — back over shoulder</span><span class="lbl" style="color:#b9b0a0">Frame to be added</span></div>
       <div class="cap"><span class="t">The Studio Set</span><span class="tag">Fashion — 02</span></div>
     </div>
@@ -218,6 +220,25 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   </div>
 </section>
 
+<!-- LIFESTYLE -->
+<section class="lifestyle" id="lifestyle">
+  <div class="sec-num reveal">
+    <span class="n">02</span>
+    <h2>Life &amp; <em>Style</em></h2>
+  </div>
+  <div class="life-grid">
+    <div class="item reveal">
+      <div class="frame"><img src="photo08.jpg" alt="Coffee shop — cream and denim"></div>
+      <div class="cap"><span class="t">Golden Hour</span><span class="tag">Lifestyle — 08</span></div>
+    </div>
+    <div class="item reveal">
+      <div class="frame"><img src="photo09.jpg" alt="Street style — beanie and denim jacket"></div>
+      <div class="cap"><span class="t">City Frames</span><span class="tag">Lifestyle — 09</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="a-img reveal">
     <div class="frame"><img src="photo01.jpg" alt="Sanjana — beauty portrait"></div>
@@ -236,6 +257,7 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="kicker">Bookings</div>
   <h2>Work with <em>Sanjana</em></h2>
@@ -263,7 +285,7 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
 
 <script>
 // lightbox
-document.querySelectorAll('.item .frame img, .about .frame img').forEach(function(img){
+document.querySelectorAll('.item .frame img, .a-img img, .h-face img').forEach(function(img){
   img.addEventListener('click', function(){
     document.getElementById('lbImg').src = img.src;
     document.getElementById('lbCap').textContent = img.alt || 'Sanjana';
@@ -276,11 +298,11 @@ var io = new IntersectionObserver(function(entries){
   entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-// parallax hero
-var heroImg = document.querySelector('.hero .imgwrap img');
+// hero face parallax
+var heroImg = document.querySelector('.hero .h-face img');
 window.addEventListener('scroll', function(){
   var y = window.scrollY;
-  if(y < window.innerHeight && heroImg) heroImg.style.transform = 'translateY(' + (y * .14) + 'px) scale(1.08)';
+  if(y < window.innerHeight && heroImg) heroImg.style.transform = 'translateY(' + (y * .12) + 'px) scale(1.06)';
 });
 </script>
 
