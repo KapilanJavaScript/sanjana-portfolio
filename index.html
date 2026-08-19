@@ -3,138 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanjana — Model Portfolio</title>
+<title>Sanjana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;800&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#faf7f2; --ink:#1a1a1a; --gold:#b08d57; --muted:#6a6a66;
-  }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);line-height:1.6}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 24px}
-  .hero .tile{width:min(320px,80vw);aspect-ratio:3/4;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,.15);background:linear-gradient(150deg,#efe9df,#e4dccd);display:flex;align-items:center;justify-content:center;padding:28px;font-style:italic;color:#8a8274;font-size:1.05rem;text-align:center}
-  .hero h1{font-size:clamp(2.6rem,6vw,4.8rem);font-weight:400;letter-spacing:.02em;margin:.5em 0 .2em;line-height:1.05}
-  .hero p.role{font-size:1.05rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:2em}
-  .hero p.dek{max-width:34em;color:var(--muted);font-style:italic}
-  nav{position:fixed;top:0;width:100%;background:rgba(250,247,242,.85);backdrop-filter:blur(10px);z-index:9;border-bottom:1px solid rgba(0,0,0,.06)}
-  nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 24px}
-  nav .logo{font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase}
-  nav a{color:inherit;text-decoration:none;font-size:.9rem;letter-spacing:.08em;margin-left:1.2em}
-  .sec{padding:96px 0}
-  .muted{color:var(--muted)}
-  .gold{color:var(--gold)}
-  h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:.02em;margin-bottom:.35em}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:3em}
-  .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:6px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.05)}
-  .card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:saturate(.96)}
-  .card .cat{padding:.5em 1em;border-top:1px solid rgba(0,0,0,.05);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-  .btn{display:inline-block;border:1px solid var(--ink);padding:.85em 2.2em;text-decoration:none;color:inherit;letter-spacing:.15em;text-transform:uppercase;font-size:.85rem;transition:.3s;border-radius:2px}
-  .btn:hover{background:var(--ink);color:var(--paper)}
-  footer{border-top:1px solid rgba(0,0,0,.07);padding:32px 0;text-align:center;color:var(--muted);font-size:.85rem}
-  .placeholder{border:1px dashed rgba(0,0,0,.18);border-radius:6px;background:linear-gradient(135deg,#f7f3ec 25%,transparent 25%),linear-gradient(225deg,#f7f3ec 25%,transparent 25%);background-size:20px 20px;padding:0;aspect-ratio:3/4;width:100%}
-  .placeholder{display:flex;align-items:center;justify-content:center;text-align:center;font-style:italic;color:var(--muted);padding:24px}
-  .cat{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 14px;position:absolute;bottom:0}
+  body{background:#fff;color:#111;font-family:'Montserrat',sans-serif;letter-spacing:.02em}
+  ::selection{background:#111;color:#fff}
+  .disp{font-family:'Oxanium',sans-serif}
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 32px;z-index:50;background:#fff;border-bottom:1px solid #eee}
+  nav .logo{font-family:'Oxanium';font-weight:800;font-size:1.15rem;letter-spacing:.18em}
+  nav .links a{color:#111;text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:.28em;margin-left:26px}
+  nav .links a:hover{text-decoration:underline}
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 32px 40px;position:relative}
+  .hero .wordmark{font-family:'Oxanium';font-weight:800;font-size:clamp(5rem,24vw,24rem);line-height:.82;letter-spacing:-.025em;text-transform:lowercase;color:#111;user-select:none}
+  .hero .sub{display:flex;justify-content:space-between;align-items:flex-end;margin-top:8px;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:#555}
+  /* MARQUEE */
+  .marquee{overflow:hidden;border-top:1px solid #111;border-bottom:1px solid #111;padding:14px 0;white-space:nowrap}
+  .marquee span{display:inline-block;font-family:'Oxanium';font-weight:600;font-size:1rem;letter-spacing:.35em;text-transform:uppercase;padding-right:3em;animation:scroll 22s linear infinite}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  /* WORK GRID */
+  .work{padding:80px 32px}
+  .work h2{font-family:'Oxanium';font-weight:800;font-size:clamp(2rem,5vw,3.4rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+  .work .note{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:#777;margin-bottom:48px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .card{position:relative}
+  .plate{aspect-ratio:3/4;background:linear-gradient(150deg,#f2f2f2,#e8e8e8);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px solid #e3e3e3}
+  .plate .num{font-family:'Oxanium';font-weight:800;font-size:2.2rem;color:#b9b9b9}
+  .plate .c{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:#999;margin-top:10px}
+  .item .t{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;font-family:'Oxanium';font-weight:600;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase}
+  .item .t .go{font-size:.8rem;color:#111;text-decoration:none;letter-spacing:.2em}
+  .item .t .go:hover{text-decoration:underline}
+  /* ABOUT SPLIT */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:100px 32px;border-top:1px solid #111;background:#fff}
+  .about .plate{aspect-ratio:3/4}
+  .about h2{font-family:'Oxanium';font-weight:800;font-size:clamp(2rem,5vw,3.2rem);text-transform:uppercase;line-height:1.02;margin-bottom:24px}
+  .about p{color:#444;font-size:.95rem;line-height:1.8;max-width:34em;margin-bottom:16px}
+  /* CONTACT */
+  .contact{padding:90px 32px;background:#111;color:#fff;text-align:center}
+  .contact h2{font-family:'Oxanium';font-weight:800;font-size:clamp(2.4rem,7vw,5rem);text-transform:uppercase;letter-spacing:.02em}
+  .contact .csub{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:#aaa;margin:14px 0 40px}
+  form{display:flex;justify-content:center;gap:0;max-width:560px;margin:0 auto}
+  input[type=email]{flex:1;background:transparent;border:1px solid #fff;color:#fff;padding:16px 20px;font:inherit;font-size:.8rem;letter-spacing:.1em;outline:none}
+  input[type=email]::placeholder{color:#888}
+  button{background:#fff;color:#111;border:none;padding:16px 32px;font-family:'Oxanium';font-weight:800;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-size:.8rem}
+  button:hover{background:#d8d8d8}
+  .social{margin-top:40px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase}
+  .social a{color:#fff;text-decoration:none;margin:0 14px}
+  .social a:hover{text-decoration:underline}
+  footer{border-top:1px solid #fff;padding:22px 32px;background:#111;color:#888;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;display:flex;justify-content:space-between}
+  @media(max-width:800px){.grid{grid-template-columns:1fr}.hero .wordmark{font-size:clamp(4rem,24vw,8rem)}.about{grid-template-columns:1fr}.links a{margin-left:14px}}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wrap">
-    <span class="logo">Sanjana</span>
-    <div><a href="#work">Portfolio</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  <b class="logo">SANJANA</b>
+  <div class="links">
+    <a href="#work">WORK</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="tile">Sanjana — beauty portrait, long dark braid over shoulder</div>
-    <h1>Sanjana</h1>
-    <div class="role">Model — Creative</div>
-    <p class="dek">Editorial beauty, movement and stillness — crafted with a quiet, cinematic eye.</p>
-    <a class="btn" href="#contact">Book the look</a>
+  <div class="wordmark">sanjana</div>
+  <div class="sub">
+    <span>Model — Creative — India</span>
+    <span>Est. 2026</span>
   </div>
 </header>
 
-<section class="sec" id="work">
-  <div class="wrap">
-    <h2>Selected Work</h2>
-    <p class="muted" style="max-width:46em;margin-bottom:2em">A study in light, textile and line — beauty, fashion, tradition and everyday life.</p>
-    <div class="grid">
+<div class="marquee">
+  <span>EDITORIAL BEAUTY — FASHION — TRADITIONAL — LIFESTYLE — CAMPAIGNS — SHOWROOMS — TEST SHOOTS —&nbsp;</span><span>EDITORIAL BEAUTY — FASHION — TRADITIONAL — LIFESTYLE — CAMPAIGNS — SHOWROOMS — TEST SHOOTS —&nbsp;</span>
+</div>
 
-      <!-- 01 Beauty -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Beauty — 01<br><span class="muted">Close-up, dark braid, red lip, bright white studio</span></div>
-        <div class="cat">Beauty — 01</div>
-      </div>
-      <!-- 02 Fashion -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Fashion — 02<br><span class="muted">Full-length athletic set, back view over shoulder</span></div>
-        <div class="cat">Fashion — 02</div>
-      </div>
-      <!-- 03 Fashion -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Fashion — 03<br><span class="muted">Three-quarter athletic set, facing forward</span></div>
-        <div class="cat">Fashion — 03</div>
-      </div>
-      <!-- 04 Editorial -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Editorial — 04<br><span class="muted">Full-length, arms crossed, front</span></div>
-        <div class="cat">Editorial — 04</div>
-      </div>
-      <!-- 05 Beauty -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Beauty — 05<br><span class="muted">Profile close-up, neutral expression</span></div>
-        <div class="cat">Beauty — 05</div>
-      </div>
-      <!-- 06 Editorial sari -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Editorial — 06<br><span class="muted">Blue and gold sari, royal editorial</span></div>
-        <div class="cat">Editorial — 06</div>
-      </div>
-      <!-- 07 Editorial sari -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Editorial — 07<br><span class="muted">Emerald sari, regal pose</span></div>
-        <div class="cat">Editorial — 07</div>
-      </div>
-      <!-- 08 Lifestyle -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Lifestyle — 08<br><span class="muted">Coffee shop, cream and denim</span></div>
-        <div class="cat">Lifestyle — 08</div>
-      </div>
-      <!-- 09 Lifestyle -->
-      <div class="card">
-        <div class="placeholder" style="aspect-ratio:3/4">Lifestyle — 09<br><span class="muted">Street style, beanie, paper cup</span></div>
-        <div class="cat">Lifestyle — 09</div>
-      </div>
+<section class="work" id="work">
+  <h2>Selected Work</h2>
+  <div class="note">A study in light, textile &amp; line — 09 frames</div>
+  <div class="grid">
 
+    <div class="item">
+      <div class="plate"><div class="num">01</div><div class="c">Beauty — close-up, braid, red lip</div></div>
+      <div class="t"><span>Beauty Series</span><a class="go" href="#contact">view →</a></div>
     </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">02</div><div class="c">Fashion — athletic, back over shoulder</div></div>
+      <div class="t"><span>Studio Set</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">03</div><div class="c">Fashion — three-quarter, facing front</div></div>
+      <div class="t"><span>Studio Set</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">04</div><div class="c">Editorial — arms crossed, front</div></div>
+      <div class="t"><span>Editorial</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">05</div><div class="c">Beauty — profile, neutral gaze</div></div>
+      <div class="t"><span>Beauty Series</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">06</div><div class="c">Editorial — royal blue &amp; gold sari</div></div>
+      <div class="t"><span>Traditional</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">07</div><div class="c">Editorial — emerald silk, regal pose</div></div>
+      <div class="t"><span>Traditional</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">08</div><div class="c">Lifestyle — coffee shop, cream + denim</div></div>
+      <div class="t"><span>Lifestyle</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
+    <div class="item">
+      <div class="plate"><div class="num">09</div><div class="c">Lifestyle — street style, beanie</div></div>
+      <div class="t"><span>Lifestyle</span><a class="go" href="#contact">view →</a></div>
+    </div>
+
   </div>
 </section>
 
-<section class="sec" id="about">
-  <div class="wrap" style="display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center">
-    <div class="placeholder" style="aspect-ratio:3/4;width:100%">Quiet editorial beauty portrait</div>
-    <div>
-      <h2>Quiet presence,<br>considered frame.</h2>
-      <p class="muted" style="margin:1.2em 0">Sanjana is an Indian fashion and editorial model. Her look moves between fragility and structure — tenderly feminine, quietly strong. This portfolio is a study in warmth: natural skin, dark hair, a braid that reads as discipline; clothes that frame rather than shout.</p>
-      <p class="muted">Based in Mumbai · travelling for select projects</p>
-      <a class="btn" href="#contact" style="margin-top:1.2em">Book the look</a>
-    </div>
+<section class="about" id="about">
+  <div class="plate"><div class="num" style="font-size:64px">S</div><div class="c">Quiet presence, considered frame</div></div>
+  <div style="padding-right:8px">
+    <h2>Quiet presence,<br>considered frame.</h2>
+    <p>Sanjana is an Indian fashion &amp; editorial model. Her look moves between fragility and structure — tenderly feminine, quietly strong. A study in warmth: natural skin, dark hair, and a braid that reads as discipline.</p>
+    <p>Editorial beauty, movement, textile and line. Available for campaigns, test shoots, showroom and collaborations.</p>
+    <p style="letter-spacing:.25em;text-transform:uppercase;font-size:.72rem;color:#888">Based in India — travelling for select projects</p>
   </div>
 </section>
 
-<section class="sec" id="contact" style="text-align:center">
-  <div class="wrap">
-    <h2>Keep in touch</h2>
-    <p class="muted" style="max-width:30em;margin:auto">Representation · test shoots · collaborations · showrooms</p>
-    <a class="btn" href="mailto:bookings@sanjana.studio" style="margin-top:1.5em">bookings@sanjana.studio</a>
-    <p class="muted" style="margin-top:2.5em;font-size:.8rem">© 2026 Sanjana · New Delhi</p>
+<section class="contact" id="contact">
+  <h2>Sanjana</h2>
+  <div class="csub">For casting, bookings &amp; collaborations</div>
+  <form onsubmit="event.preventDefault();this.querySelector('button').textContent='THANK YOU — SUBMITTED';">
+    <input type="email" placeholder="EMAIL ADDRESS" required>
+    <button>Submit</button>
+  </form>
+  <div class="social">
+    <a href="mailto:bookings@sanjana.studio">EMAIL</a>
+    <a href="#">INSTAGRAM</a>
+    <a href="#">MODEL MAYHEM</a>
   </div>
 </section>
 
 <footer>
-  <span class="gold">Sanjana</span> — editorial model portfolio
+  <span>© 2026 Sanjana</span>
+  <span>All Rights Reserved</span>
 </footer>
 
 </body>
