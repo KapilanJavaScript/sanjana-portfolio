@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f6f2ea;--ink:#16130e;--gold:#a8874d;--muted:#7d7668;--line:rgba(22,19,14,.14)}
+:root{--paper:#f6f2ea;--ink:#16130e;--gold:#d3b066;--muted:#7d7668;--line:rgba(22,19,14,.14)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -39,32 +39,49 @@ nav .links a:hover{color:#fff}
 .marquee .track{display:inline-block;animation:scroll 30s linear infinite}
 .marquee span{font-family:'Cormorant Garamond';font-size:1.7rem;font-style:italic;letter-spacing:.06em;padding:0 1.6em}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.glass-stage{position:relative;padding:130px 40px 60px;background:#f3efe6;overflow:hidden}
-.glass-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 42% at 14% 10%,rgba(200,168,97,.20),transparent 62%),radial-gradient(44% 38% at 90% 16%,rgba(160,140,220,.18),transparent 60%),radial-gradient(56% 44% at 50% 98%,rgba(120,190,200,.16),transparent 65%),linear-gradient(170deg,#f7f2e8 0%,#efe9dd 50%,#f4efe4 100%)}
-.glass-stage .blur-orb{position:absolute;filter:blur(70px);opacity:.55;border-radius:50%;pointer-events:none}
-.glass-stage .blur-orb.o1{width:520px;height:520px;background:#e8d5a8;top:-130px;right:-90px;animation:drift 16s ease-in-out infinite alternate}
-.glass-stage .blur-orb.o2{width:430px;height:430px;background:#cdc4ee;bottom:-110px;left:-130px;animation:drift 20s ease-in-out infinite alternate-reverse}
-@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(60px,-40px) scale(1.15)}}
-.stage-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 40px}
-.sec-num{display:flex;align-items:baseline;gap:22px;margin-bottom:76px}
-.sec-num .n{font-family:'Cormorant Garamond';font-style:italic;font-size:1.6rem;color:var(--gold)}
-.sec-num h2{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(2.6rem,5vw,4.8rem);line-height:1;color:var(--ink)}
-.sec-num h2 em{font-style:italic;color:var(--gold)}
-.workpiece{display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:stretch;margin-bottom:110px;min-height:620px}
-.workpiece.rev{grid-template-columns:.85fr 1.15fr}
-.workpiece.rev .wp-img{order:2}
-.workpiece.rev .wp-txt{order:1}
-.wp-img{position:relative;overflow:hidden;background:#e4dccb}
-.wp-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
-.workpiece:hover .wp-img img{transform:scale(1.05)}
-.wp-img .num{position:absolute;top:22px;left:26px;font-family:'Cormorant Garamond';font-style:italic;font-size:1.3rem;color:#fff;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.4)}
-.wp-txt{display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#fffdf8}
-.wp-txt .tag{font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:22px}
-.wp-txt h3{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(2.2rem,3.6vw,3.4rem);line-height:1.05;margin-bottom:20px}
-.wp-txt h3 em{font-style:italic;color:var(--gold)}
-.wp-txt p.note{color:#4b463c;font-size:.92rem;line-height:1.85;max-width:30em;font-weight:300;margin-bottom:30px}
-.wp-txt .line{width:52px;height:1px;background:var(--gold)}
-.lifestyle{padding:110px 40px 80px;background:#fffdf8;border-top:1px solid var(--ink)}
+
+/* ============ MAGAZINE BOOK : PAGE TURN WORK ============ */
+.book{position:relative;height:235vh;background:#14110b}
+.book .page{height:100vh;width:100%;overflow:hidden;position:relative;color:#fff}
+/* page 1 */
+.page1{position:relative;display:flex;align-items:flex-end}
+.page1 .bg{position:absolute;inset:0;z-index:0}
+.page1 .bg img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.page1 .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,6,3,.72) 0%,rgba(8,6,3,.28) 34%,rgba(8,6,3,0) 55%),linear-gradient(0deg,rgba(8,6,3,.7) 0%,rgba(8,6,3,0) 46%)}
+.page1 .mast{position:absolute;top:0;left:0;right:0;z-index:3;padding:96px 40px;display:flex;justify-content:space-between;align-items:center;font-size:.64rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.page1 .creative{max-width:64rem;padding:0 40px 84px;z-index:2;position:relative}
+.page1 .creative .kicker{color:rgba(255,255,255,.55);margin-bottom:20px}
+.page1 .creative h1{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(4.4rem,12vw,12rem);line-height:.86;color:#fff;text-shadow:0 10px 80px rgba(0,0,0,.5)}
+.page1 .creative h1 em{font-style:italic;color:var(--gold)}
+.page1 .creative .note{max-width:26rem;margin-top:26px;font-size:.96rem;line-height:1.85;color:rgba(255,255,255,.82);font-weight:300;font-style:italic}
+.page1 .creative .rule{width:64px;height:1px;background:var(--gold);margin:26px 0 0}
+
+/* page 2 : the turning page */
+.page2{position:sticky;top:0;will-change:transform;transform-origin:left center;transform-style:preserve-3d}
+.page2 .sheet{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:flex-end}
+.page2 .front{background:#141c0e;background-image:linear-gradient(105deg,#141c0e 0%,#1a1710 60%,#141c0e 100%)}
+.page2 .front .bg{position:absolute;inset:0;z-index:0}
+.page2 .front .bg img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.9);opacity:.3;transform:scaleX(-1)}
+.page2 .front .vign{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,12,8,.5),rgba(20,12,8,.05) 38%),linear-gradient(270deg,rgba(20,12,8,.55),rgba(20,12,8,0) 45%)}
+.page2 .front .show{position:relative;z-index:2;padding:0 40px 84px;max-width:60rem}
+.page2 .front .kicker{color:rgba(255,255,255,.5);margin-bottom:20px}
+.page2 .front h1{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(4.2rem,11vw,11rem);line-height:.86;color:#fff;text-shadow:0 10px 80px rgba(0,0,0,.55)}
+.page2 .front h1 em{font-style:italic;color:#c49a54}
+.page2 .front .note{max-width:24rem;margin-top:26px;font-size:.94rem;line-height:1.85;color:rgba(255,255,255,.8);font-weight:300;font-style:italic}
+.page2 .front .rule{width:64px;height:1px;background:#c49a54;margin:26px 0 0}
+
+/* page edge sheen when turning */
+.page2 .spin{position:absolute;top:0;bottom:0;left:0;width:90px;z-index:4;background:linear-gradient(90deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,0) 60%);filter:blur(2px);opacity:.0;pointer-events:none}
+.page2 .backface{position:absolute;inset:0;transform:rotateY(180deg);background:linear-gradient(100deg,#221a12,#0f0b07);z-index:0;display:flex;align-items:center;justify-content:center}
+.page2 .backface .t{font-family:'Cormorant Garamond';font-style:italic;font-size:1.4rem;color:rgba(255,255,255,.35)}
+
+/* progress dots */
+.book .progress{position:fixed;right:36px;top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;gap:18px}
+.book .progress span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .3s,transform .3s}
+.book .progress span.on{background:var(--gold);transform:scale(1.4)}
+
+/* ——— LIFESTYLE ——— */
+.lifestyle{padding:130px 40px 80px;background:#fffdf8}
 .life-grid{display:flex;justify-content:center;gap:48px;max-width:1280px;margin:0 auto;padding:0 40px}
 .life-grid .item{flex:0 1 380px}
 .life-grid .frame{aspect-ratio:3/4;overflow:hidden;position:relative;background:#e2dac8}
@@ -73,6 +90,7 @@ nav .links a:hover{color:#fff}
 .life-grid .item .cap{display:flex;justify-content:space-between;margin-top:14px}
 .life-grid .item .cap .t{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
 .life-grid .item .cap .tag{font-family:'Cormorant Garamond';font-style:italic;font-size:1rem;color:var(--muted)}
+/* ——— ABOUT ——— */
 .about{display:grid;grid-template-columns:1fr 1fr;gap:90px;padding:150px 40px;border-top:1px solid var(--ink);background:#fffdf8}
 .about .a-img{position:relative}
 .about .a-img .frame{aspect-ratio:3/4;overflow:hidden}
@@ -85,6 +103,7 @@ nav .links a:hover{color:#fff}
 .about .fact{background:#fffdf8;padding:20px 18px}
 .about .fact b{font-family:'Cormorant Garamond';font-weight:600;font-size:1.7rem;display:block}
 .about .fact span{font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+/* ——— CONTACT ——— */
 .contact{background:var(--ink);color:var(--paper);padding:130px 40px 60px;text-align:center}
 .contact .kicker{color:rgba(246,242,234,.5)}
 .contact h2{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(3rem,8vw,7rem);margin:22px 0 10px}
@@ -99,6 +118,7 @@ button:hover{color:#cbb98a}
 .social a{color:rgba(246,242,234,.7);text-decoration:none;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;transition:color .3s}
 .social a:hover{color:#cbb98a}
 footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rgba(246,242,234,.4);display:flex;justify-content:space-between;padding:26px 40px;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase}
+/* ——— LIGHTBOX ——— */
 .lightbox{position:fixed;inset:0;background:rgba(8,8,14,.96);z-index:100;display:none;align-items:center;justify-content:center;cursor:zoom-out}
 .lightbox.open{display:flex}
 .lightbox img{max-width:86vw;max-height:84vh;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.6)}
@@ -109,11 +129,10 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   nav{padding:18px 22px}
   nav .links{gap:18px}
   .hero h1{font-size:clamp(3.6rem,16vw,7rem)}
-  .workpiece,.workpiece.rev{grid-template-columns:1fr;min-height:0;margin-bottom:70px}
-  .workpiece.rev .wp-img{order:1}
-  .workpiece.rev .wp-txt{order:2}
-  .wp-txt{padding:38px 26px}
-  .stage-inner{padding:0 22px}
+  .page1 .mast{padding:74px 22px}
+  .page1 .creative,.page2 .front .show{padding:0 24px 56px}
+  .page1 .creative h1,.page2 .front h2{font-size:clamp(3.6rem,15vw,7rem)}
+  .book .progress{display:none}
   .life-grid{flex-direction:column;align-items:center;padding:0 22px}
   .life-grid .item{flex:1 1 auto;width:100%;max-width:420px}
   .lifestyle{padding:70px 0 50px}
@@ -158,43 +177,49 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   </div>
 </div>
 
-<section class="glass-stage" id="work">
-  <div class="blur-orb o1"></div>
-  <div class="blur-orb o2"></div>
-  <div class="stage-inner">
-    <div class="sec-num reveal">
-      <span class="n">01</span>
-      <h2>Selected <em>Work</em></h2>
-    </div>
+<!-- ============ MAGAZINE : PAGE-TURN WORK ============ -->
+<section class="book" id="work">
+  <div class="progress"><span></span><span></span></div>
 
-    <div class="workpiece reveal">
-      <div class="wp-img"><span class="num">I</span><img src="photo06.jpg" alt="Royal blue and gold silk saree — traditional editorial"></div>
-      <div class="wp-txt">
-        <div class="tag">Traditional — Editorial</div>
-        <h3>Royal <em>Blue</em></h3>
-        <p class="note">A royal blue silk saree with a gold border, adorning gold jewellery against a deep, quiet backdrop. A study in tradition worn with ease — soft light, rich textile, and a poise that needs nothing but a glance.</p>
-        <div class="line"></div>
+  <!-- PAGE 1 — ROYAL BLUE -->
+  <div class="page page1">
+    <div class="bg"><img src="photo06.jpg" alt="Royal Blue — saree editorial"></div>
+    <div class="veil"></div>
+    <div class="mast">
+      <span>Sanjana — Selected Work</span>
+      <span>01 <i>/</i> 02</span>
+    </div>
+    <div class="creative">
+      <div class="kicker">Traditional — Editorial</div>
+      <h1>Royal <em>Blue</em></h1>
+      <p class="note">A royal blue silk saree with a gold border, adorning gold jewellery against a deep, quiet backdrop. A study in tradition worn with ease — soft light, rich textile, and a poise that needs nothing but a glance.</p>
+      <div class="rule"></div>
+    </div>
+  </div>
+
+  <!-- PAGE 2 — STARK STUDIO (turns over page 1) -->
+  <div class="page page2" id="turn">
+    <div class="spin" id="spin"></div>
+    <div class="backface"><span class="t">Sanjana</span></div>
+    <div class="sheet front">
+      <div class="bg"><img src="photo03.jpg" alt="Stark Studio — studio set"></div>
+      <div class="vign"></div>
+      <div class="show">
+        <div class="kicker">Studio — Fashion</div>
+        <h2>Stark <em>Studio</em></h2>
+        <p>Arms crossed, face forward — a clean black against bright white. No scenery, no noise: just line, shadow and presence. The essential studio study, disciplined and direct.</p>
+        <div class="rule"></div>
       </div>
     </div>
-
-    <div class="workpiece rev reveal">
-      <div class="wp-img"><span class="num">II</span><img src="photo03.jpg" alt="Studio set — three-quarter, facing forward"></div>
-      <div class="wp-txt">
-        <div class="tag">Studio — Fashion</div>
-        <h3>Stark <em>Studio</em></h3>
-        <p class="note">Arms crossed, face forward — a clean black against bright white. No scenery, no noise: just line, shadow and presence. The essential studio study, disciplined and direct.</p>
-        <div class="line"></div>
-      </div>
-    </div>
-
   </div>
 </section>
 
+<!-- LIFESTYLE -->
 <section class="lifestyle" id="lifestyle">
-  <div class="stage-inner">
-    <div class="sec-num reveal">
-      <span class="n">02</span>
-      <h2>Life &amp; <em>Style</em></h2>
+  <div class="stage-inner" style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <div class="sec-num reveal" style="display:flex;align-items:baseline;gap:22px;margin-bottom:70px">
+      <span style="font-family:'Cormorant Garamond';font-style:italic;font-size:1.6rem;color:var(--gold)">02</span>
+      <h2 style="font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(2.6rem,5vw,4.8rem)">Life &amp; <em style="font-style:italic;color:var(--gold)">Style</em></h2>
     </div>
     <div class="life-grid">
       <div class="item reveal">
@@ -209,6 +234,7 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   </div>
 </section>
 
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="a-img reveal">
     <div class="frame"><img src="photo01.jpg" alt="Sanjana — beauty portrait"></div>
@@ -217,8 +243,8 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   <div class="reveal">
     <div class="kicker">About</div>
     <h2>Quiet presence,<br><em>considered</em> frame.</h2>
-    <p class="body">Sanjana is an Indian fashion and editorial model. Her look moves between fragility and structure — tenderly feminine, quietly strong. Natural skin, dark hair, a braid that reads as discipline; clothes that frame rather than shout.</p>
-    <p class="body">A study in warmth: editorial beauty, movement, textile and line. Available for campaigns, test shoots, showrooms and collaborations worldwide.</p>
+    <p>Sanjana is an Indian fashion and editorial model. Her look moves between fragility and structure — tenderly feminine, quietly strong. Natural skin, dark hair, a braid that reads as discipline; clothes that frame rather than shout.</p>
+    <p>A study in warmth: editorial beauty, movement, textile and line. Available for campaigns, test shoots, showrooms and collaborations worldwide.</p>
     <div class="facts">
       <div class="fact"><b>5</b><span>Languages</span></div>
       <div class="fact"><b>02</b><span>Signature Works</span></div>
@@ -227,6 +253,7 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="kicker">Bookings</div>
   <h2>Work with <em>Sanjana</em></h2>
@@ -253,7 +280,8 @@ footer{background:var(--ink);border-top:1px solid rgba(246,242,234,.12);color:rg
 </div>
 
 <script>
-document.querySelectorAll('.wp-img img, .life-grid img, .a-img img, .hero .bg img').forEach(function(img){
+// lightbox
+document.querySelectorAll('.page img, .life-grid img, .a-img img, .hero .bg img').forEach(function(img){
   img.addEventListener('click', function(){
     document.getElementById('lbImg').src = img.src;
     document.getElementById('lbCap').textContent = img.alt || 'Sanjana';
@@ -261,6 +289,7 @@ document.querySelectorAll('.wp-img img, .life-grid img, .a-img img, .hero .bg im
   });
 });
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.getElementById('lightbox').classList.remove('open'); });
+// reveals
 var groups = document.querySelectorAll('.life-grid, .about, .contact, .sec-num');
 groups.forEach(function(g){
   var els = g.querySelectorAll('.reveal');
@@ -272,10 +301,37 @@ var io = new IntersectionObserver(function(entries){
   });
 },{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+// hero parallax
 var heroImg = document.querySelector('.hero .bg img');
 window.addEventListener('scroll', function(){
   var y = window.scrollY;
   if(y < window.innerHeight && heroImg) heroImg.style.transform = 'translateY(' + (y*.18) + 'px) scale(1.1)';
+});
+
+// ---- MAGAZINE PAGE TURN ----
+var book = document.querySelector('.book');
+var page2 = document.getElementById('turn');
+var spin = document.getElementById('spin');
+window.addEventListener('scroll', function(){
+  var bTop = book.offsetTop - (window.innerHeight*1.0);   // enter near top of book
+  var start = bTop;                                        // turn begins
+  var dist  = window.innerHeight*1.15;                     // distance over which it turns
+  var s = window.scrollY;
+  var p = (s - start) / dist;                              // 0..1
+  p = Math.max(0, Math.min(1, p));
+  // ease
+  var e = 1 - Math.pow(1-p, 3);
+  // rotate the page from 78deg to 0 (in from the left, like a turning page)
+  var deg = 78 * (1 - e);
+  var trans = -34 * (1 - e);
+  page2.style.transform = 'perspective(1600px) rotateY(' + deg + 'deg) translateX(' + trans + 'px)';
+  page2.style.transformOrigin = 'left center';
+  // edge sheen pulses as it turns
+  spin.style.opacity = (e * .8) + '';
+  // progress dots
+  var dots = document.querySelectorAll('.book .progress span');
+  if(dots.length==2){ dots[0].style.background = p<.5 ? 'var(--gold)' : 'rgba(255,255,255,.25)'; dots[1].style.background = p>=.5 ? 'var(--gold)' : 'rgba(255,255,255,.25)'; }
 });
 </script>
 
