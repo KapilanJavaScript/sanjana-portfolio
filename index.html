@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjana — Model Portfolio</title>
+<style>
+  :root{
+    --paper:#faf7f2; --ink:#1a1a1a; --gold:#b08d57; --muted:#6a6a66;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 24px}
+  .hero .tile{width:min(320px,80vw);aspect-ratio:3/4;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,.15);background:linear-gradient(150deg,#efe9df,#e4dccd);display:flex;align-items:center;justify-content:center;padding:28px;font-style:italic;color:#8a8274;font-size:1.05rem;text-align:center}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.8rem);font-weight:400;letter-spacing:.02em;margin:.5em 0 .2em;line-height:1.05}
+  .hero p.role{font-size:1.05rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:2em}
+  .hero p.dek{max-width:34em;color:var(--muted);font-style:italic}
+  nav{position:fixed;top:0;width:100%;background:rgba(250,247,242,.85);backdrop-filter:blur(10px);z-index:9;border-bottom:1px solid rgba(0,0,0,.06)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 24px}
+  nav .logo{font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase}
+  nav a{color:inherit;text-decoration:none;font-size:.9rem;letter-spacing:.08em;margin-left:1.2em}
+  .sec{padding:96px 0}
+  .muted{color:var(--muted)}
+  .gold{color:var(--gold)}
+  h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:.02em;margin-bottom:.35em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:3em}
+  .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:6px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.05)}
+  .card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:saturate(.96)}
+  .card .cat{padding:.5em 1em;border-top:1px solid rgba(0,0,0,.05);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .btn{display:inline-block;border:1px solid var(--ink);padding:.85em 2.2em;text-decoration:none;color:inherit;letter-spacing:.15em;text-transform:uppercase;font-size:.85rem;transition:.3s;border-radius:2px}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  footer{border-top:1px solid rgba(0,0,0,.07);padding:32px 0;text-align:center;color:var(--muted);font-size:.85rem}
+  .placeholder{border:1px dashed rgba(0,0,0,.18);border-radius:6px;background:linear-gradient(135deg,#f7f3ec 25%,transparent 25%),linear-gradient(225deg,#f7f3ec 25%,transparent 25%);background-size:20px 20px;padding:0;aspect-ratio:3/4;width:100%}
+  .placeholder{display:flex;align-items:center;justify-content:center;text-align:center;font-style:italic;color:var(--muted);padding:24px}
+  .cat{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 14px;position:absolute;bottom:0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="logo">Sanjana</span>
+    <div><a href="#work">Portfolio</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tile">Sanjana — beauty portrait, long dark braid over shoulder</div>
+    <h1>Sanjana</h1>
+    <div class="role">Model — Creative</div>
+    <p class="dek">Editorial beauty, movement and stillness — crafted with a quiet, cinematic eye.</p>
+    <a class="btn" href="#contact">Book the look</a>
+  </div>
+</header>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <h2>Selected Work</h2>
+    <p class="muted" style="max-width:46em;margin-bottom:2em">A study in light, textile and line — beauty, fashion, tradition and everyday life.</p>
+    <div class="grid">
+
+      <!-- 01 Beauty -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Beauty — 01<br><span class="muted">Close-up, dark braid, red lip, bright white studio</span></div>
+        <div class="cat">Beauty — 01</div>
+      </div>
+      <!-- 02 Fashion -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Fashion — 02<br><span class="muted">Full-length athletic set, back view over shoulder</span></div>
+        <div class="cat">Fashion — 02</div>
+      </div>
+      <!-- 03 Fashion -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Fashion — 03<br><span class="muted">Three-quarter athletic set, facing forward</span></div>
+        <div class="cat">Fashion — 03</div>
+      </div>
+      <!-- 04 Editorial -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Editorial — 04<br><span class="muted">Full-length, arms crossed, front</span></div>
+        <div class="cat">Editorial — 04</div>
+      </div>
+      <!-- 05 Beauty -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Beauty — 05<br><span class="muted">Profile close-up, neutral expression</span></div>
+        <div class="cat">Beauty — 05</div>
+      </div>
+      <!-- 06 Editorial sari -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Editorial — 06<br><span class="muted">Blue and gold sari, royal editorial</span></div>
+        <div class="cat">Editorial — 06</div>
+      </div>
+      <!-- 07 Editorial sari -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Editorial — 07<br><span class="muted">Emerald sari, regal pose</span></div>
+        <div class="cat">Editorial — 07</div>
+      </div>
+      <!-- 08 Lifestyle -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Lifestyle — 08<br><span class="muted">Coffee shop, cream and denim</span></div>
+        <div class="cat">Lifestyle — 08</div>
+      </div>
+      <!-- 09 Lifestyle -->
+      <div class="card">
+        <div class="placeholder" style="aspect-ratio:3/4">Lifestyle — 09<br><span class="muted">Street style, beanie, paper cup</span></div>
+        <div class="cat">Lifestyle — 09</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap" style="display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center">
+    <div class="placeholder" style="aspect-ratio:3/4;width:100%">Quiet editorial beauty portrait</div>
+    <div>
+      <h2>Quiet presence,<br>considered frame.</h2>
+      <p class="muted" style="margin:1.2em 0">Sanjana is an Indian fashion and editorial model. Her look moves between fragility and structure — tenderly feminine, quietly strong. This portfolio is a study in warmth: natural skin, dark hair, a braid that reads as discipline; clothes that frame rather than shout.</p>
+      <p class="muted">Based in Mumbai · travelling for select projects</p>
+      <a class="btn" href="#contact" style="margin-top:1.2em">Book the look</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact" style="text-align:center">
+  <div class="wrap">
+    <h2>Keep in touch</h2>
+    <p class="muted" style="max-width:30em;margin:auto">Representation · test shoots · collaborations · showrooms</p>
+    <a class="btn" href="mailto:bookings@sanjana.studio" style="margin-top:1.5em">bookings@sanjana.studio</a>
+    <p class="muted" style="margin-top:2.5em;font-size:.8rem">© 2026 Sanjana · New Delhi</p>
+  </div>
+</section>
+
+<footer>
+  <span class="gold">Sanjana</span> — editorial model portfolio
+</footer>
+
+</body>
+</html>
